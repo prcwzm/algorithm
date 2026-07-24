@@ -1,0 +1,27 @@
+package com.leetcode.hot100.day02;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
+
+@Disabled("实现题解后删除此注解")
+class P0015ThreeSumTest {
+    private final P0015ThreeSum solution = new P0015ThreeSum();
+
+    @Test
+    void findsUniqueTriplets() {
+        Set<List<Integer>> actual = new HashSet<>(
+                solution.threeSum(new int[] {-1, 0, 1, 2, -1, -4}));
+        assertEquals(Set.of(List.of(-1, -1, 2), List.of(-1, 0, 1)), actual);
+    }
+
+    @Test
+    void returnsEmptyWhenNoTripletExists() {
+        assertEquals(List.of(), solution.threeSum(new int[] {0, 1, 1}));
+    }
+}
+
