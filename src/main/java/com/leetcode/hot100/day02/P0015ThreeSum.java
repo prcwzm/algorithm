@@ -5,7 +5,7 @@ import java.util.*;
 /** LeetCode 15. 三数之和。 */
 public class P0015ThreeSum {
 
-    public List<List<Integer>> threeSum(int[] nums) {
+    public List<List<Integer>> threeSum1(int[] nums) {
         Map<Integer, Set<Integer>> keyMap = new HashMap<>();
         Arrays.sort(nums);
         //Map
@@ -48,6 +48,34 @@ public class P0015ThreeSum {
                 }
             }
         return new ArrayList<>(threeSum.values());
+    }
+
+    public List<List<Integer>> threeSum(int[] nums) {
+        Arrays.sort(nums);
+        List<List<Integer>> res = new ArrayList<>();
+        for (int k = 0; k< nums.length - 2; k++){
+            if (nums[k] > 0 ) continue;
+            if (k>0 && nums[k - 1] == nums[k]) continue;
+            int i = k + 1;
+            int j = nums.length - 1;
+            while (i < j) {
+                int s = nums[i] + nums[j] + nums[k];
+                if (s < 0) {
+                    while (i < j && nums[i] == nums[++i]);
+                } else if ( s > 0) {
+                    while (i < j && nums[j] == nums[--j]);
+                } else {
+                    List<Integer> item = new ArrayList<>();
+                    item.add(nums[i]);
+                    item.add(nums[j]);
+                    item.add(nums[k]);
+                    res.add(item);
+                    while (i < j && nums[i] == nums[++i]);
+                    while (i < j && nums[j] == nums[--j]);
+                }
+            }
+        }
+        return res;
     }
 }
 
