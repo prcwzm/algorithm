@@ -5,10 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-@Disabled("实现题解后删除此注解")
 class P0015ThreeSumTest {
     private final P0015ThreeSum solution = new P0015ThreeSum();
 
@@ -23,5 +21,20 @@ class P0015ThreeSumTest {
     void returnsEmptyWhenNoTripletExists() {
         assertEquals(List.of(), solution.threeSum(new int[] {0, 1, 1}));
     }
-}
 
+    @Test
+    void handlesDuplicatesAndSeveralUniqueTriplets() {
+        Set<List<Integer>> actual = new HashSet<>(solution.threeSum(
+                new int[] {-4, -2, 1, -5, -4, -4, 4, -2, 0, 4, 0, -2, 3, 1, -5, 0}));
+
+        assertEquals(
+                Set.of(
+                        List.of(-5, 1, 4),
+                        List.of(-4, 0, 4),
+                        List.of(-4, 1, 3),
+                        List.of(-2, -2, 4),
+                        List.of(-2, 1, 1),
+                        List.of(0, 0, 0)),
+                actual);
+    }
+}
