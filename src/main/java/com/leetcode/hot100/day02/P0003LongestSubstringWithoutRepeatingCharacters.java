@@ -1,16 +1,29 @@
 package com.leetcode.hot100.day02;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /** LeetCode 3. 无重复字符的最长子串。 */
 public class P0003LongestSubstringWithoutRepeatingCharacters {
 
     public int lengthOfLongestSubstring(String s) {
-        // TODO: 在这里练习最优的滑动窗口方案。
-        return lengthOfLongestSubstringFirstAttempt(s);
+        if (s.isEmpty()) {
+            return 0;
+        }
+        Set<Character> occSet = new HashSet<>();
+        int ans = 0;
+        int k = -1;
+        int n = s.length();
+        for (int i = 0; i < n; i++) {
+            if (i != 0) {
+                occSet.remove(s.charAt(i - 1));
+            }
+            while(k+1 < n && !occSet.contains(s.charAt(k + 1))) {
+                occSet.add(s.charAt(k + 1));
+                k++;
+            }
+            ans = Math.max(ans, k - i + 1);
+        }
+        return ans;
     }
 
     public int lengthOfLongestSubstringFirstAttempt(String s) {
