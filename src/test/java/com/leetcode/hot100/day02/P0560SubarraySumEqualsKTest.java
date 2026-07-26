@@ -2,10 +2,8 @@ package com.leetcode.hot100.day02;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-@Disabled("实现题解后删除此注解")
 class P0560SubarraySumEqualsKTest {
     private final P0560SubarraySumEqualsK solution = new P0560SubarraySumEqualsK();
 

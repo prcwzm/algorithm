@@ -1,11 +1,24 @@
 package com.leetcode.hot100.day02;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /** LeetCode 560. 和为 K 的子数组。 */
 public class P0560SubarraySumEqualsK {
 
     public int subarraySum(int[] nums, int k) {
-        // TODO: 实现后补充思路、时间复杂度和空间复杂度。
-        throw new UnsupportedOperationException("请实现和为 K 的子数组");
+        Map<Integer, Integer> s = new HashMap<>();
+        int count = 0;
+        int pre = 0;
+        s.put(0,1);
+        for (int num : nums) {
+            pre += num; // 记录前缀和
+            if (s.containsKey(pre - k)) {
+                count += s.get(pre - k);
+            }
+            s.put(pre, s.getOrDefault(pre, 0) + 1);
+        }
+        return count;
+
     }
 }
-
