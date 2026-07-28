@@ -2,10 +2,8 @@ package com.leetcode.hot100.day03;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-@Disabled("实现题解后删除此注解")
 class P0053MaximumSubarrayTest {
     private final P0053MaximumSubarray solution = new P0053MaximumSubarray();
 
@@ -17,5 +15,15 @@ class P0053MaximumSubarrayTest {
     @Test
     void handlesSingleElement() {
         assertEquals(1, solution.maxSubArray(new int[] {1}));
+    }
+
+    @Test
+    void handlesAllNegativeValues() {
+        assertEquals(-2, solution.maxSubArray(new int[] {-3, -2, -5}));
+    }
+
+    @Test
+    void handlesAllPositiveValues() {
+        assertEquals(6, solution.maxSubArray(new int[] {1, 2, 3}));
     }
 }
