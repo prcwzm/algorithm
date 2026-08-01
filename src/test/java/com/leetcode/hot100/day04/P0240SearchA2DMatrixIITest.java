@@ -3,10 +3,8 @@ package com.leetcode.hot100.day04;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-@Disabled("实现题解后删除此注解")
 class P0240SearchA2DMatrixIITest {
     private final P0240SearchA2DMatrixII solution = new P0240SearchA2DMatrixII();
     private final int[][] matrix = {
@@ -25,5 +23,15 @@ class P0240SearchA2DMatrixIITest {
     @Test
     void rejectsMissingTarget() {
         assertFalse(solution.searchMatrix(matrix, 20));
+    }
+
+    @Test
+    void findsTopLeftCorner() {
+        assertTrue(solution.searchMatrix(matrix, 1));
+    }
+
+    @Test
+    void findsBottomRightCorner() {
+        assertTrue(solution.searchMatrix(matrix, 30));
     }
 }
