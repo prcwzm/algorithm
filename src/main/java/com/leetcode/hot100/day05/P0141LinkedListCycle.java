@@ -6,7 +6,24 @@ import com.leetcode.hot100.common.ListNode;
 public class P0141LinkedListCycle {
 
     public boolean hasCycle(ListNode head) {
-        // TODO: 实现后补充思路、时间复杂度和空间复杂度。
-        throw new UnsupportedOperationException("请实现环形链表");
+        if (head == null || head.next == null) {
+            return false;
+        }
+        ListNode aPtr = head;
+        ListNode bPtr = head.next;
+        while(aPtr != null || bPtr != null) {
+            if (aPtr==bPtr){
+                return true;
+            }
+            if (aPtr!=null){
+                aPtr = aPtr.next;
+            }
+            if (bPtr != null && bPtr.next !=null){
+                bPtr = bPtr.next.next;
+            } else {
+                return false;
+            }
+        }
+        return false;
     }
 }

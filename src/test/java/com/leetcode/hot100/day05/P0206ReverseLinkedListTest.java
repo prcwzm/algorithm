@@ -4,10 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 import com.leetcode.hot100.common.ListNode;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-@Disabled("实现题解后删除此注解")
 class P0206ReverseLinkedListTest {
     private final P0206ReverseLinkedList solution = new P0206ReverseLinkedList();
 

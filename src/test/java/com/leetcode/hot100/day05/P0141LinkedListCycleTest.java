@@ -4,10 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.leetcode.hot100.common.ListNode;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-@Disabled("实现题解后删除此注解")
 class P0141LinkedListCycleTest {
     private final P0141LinkedListCycle solution = new P0141LinkedListCycle();
 

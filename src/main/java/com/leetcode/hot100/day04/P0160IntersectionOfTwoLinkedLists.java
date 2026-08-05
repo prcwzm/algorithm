@@ -6,7 +6,12 @@ import com.leetcode.hot100.common.ListNode;
 public class P0160IntersectionOfTwoLinkedLists {
 
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-        // TODO: 实现后补充思路、时间复杂度和空间复杂度。
-        throw new UnsupportedOperationException("请实现相交链表");
+        ListNode aPtr = headA;
+        ListNode bPtr = headB;
+        while(aPtr != bPtr) {
+            aPtr = aPtr !=null ? aPtr.next : headB;
+            bPtr = bPtr !=null ? bPtr.next : headA;
+        }
+        return aPtr;
     }
 }

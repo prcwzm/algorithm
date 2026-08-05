@@ -6,7 +6,12 @@ import com.leetcode.hot100.common.ListNode;
 public class P0206ReverseLinkedList {
 
     public ListNode reverseList(ListNode head) {
-        // TODO: 实现后补充思路、时间复杂度和空间复杂度。
-        throw new UnsupportedOperationException("请实现反转链表");
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode trueHand = reverseList(head.next);
+        head.next.next = head;
+        head.next = null;
+        return trueHand;
     }
 }
