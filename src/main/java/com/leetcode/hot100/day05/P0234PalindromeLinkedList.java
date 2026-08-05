@@ -6,7 +6,47 @@ import com.leetcode.hot100.common.ListNode;
 public class P0234PalindromeLinkedList {
 
     public boolean isPalindrome(ListNode head) {
-        // TODO: 实现后补充思路、时间复杂度和空间复杂度。
-        throw new UnsupportedOperationException("请实现回文链表");
+        if (head.next == null) {
+            return true;
+        }
+        if (head.next.next == null){
+            return head.val == head.next.val;
+        }
+        //计算链表长度
+        int sizeCount = 0;
+        ListNode ptr = head;
+        while (ptr !=null) {
+            ptr = ptr.next;
+            sizeCount++;
+        }
+        int reverseStart = sizeCount/2;
+        ptr = head;
+        for (int i = 0; i < reverseStart; i++)
+        {
+            ptr = ptr.next;
+        }
+
+        ListNode reverseHead = reverseList(ptr);
+        ListNode startNode  = head;
+        for (int i = 0; i < sizeCount/2 ; i ++) {
+            if (reverseHead.val != startNode.val) {
+                return false;
+            }
+            startNode = startNode.next;
+            reverseHead = reverseHead.next;
+        }
+        return true;
+    }
+
+    public ListNode reverseList(ListNode head) {
+        ListNode curr = head;
+        ListNode pre = null;
+        while(curr != null) {
+            ListNode next = curr.next;
+            curr.next = pre;
+            pre = curr;
+            curr = next;
+        }
+        return pre;
     }
 }
