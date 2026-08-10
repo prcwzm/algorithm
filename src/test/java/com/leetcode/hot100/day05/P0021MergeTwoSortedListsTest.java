@@ -4,10 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 import com.leetcode.hot100.common.ListNode;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-@Disabled("实现题解后删除此注解")
 class P0021MergeTwoSortedListsTest {
     private final P0021MergeTwoSortedLists solution = new P0021MergeTwoSortedLists();
 
