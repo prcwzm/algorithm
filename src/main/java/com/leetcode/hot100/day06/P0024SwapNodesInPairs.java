@@ -6,7 +6,17 @@ import com.leetcode.hot100.common.ListNode;
 public class P0024SwapNodesInPairs {
 
     public ListNode swapPairs(ListNode head) {
-        // TODO: 实现后补充思路、时间复杂度和空间复杂度。
-        throw new UnsupportedOperationException("请实现两两交换链表中的节点");
+        ListNode shadowNode = new ListNode(-1, head);
+        ListNode pre = shadowNode;
+        while(pre.next != null && pre.next.next != null){
+            ListNode p = pre.next;
+            ListNode q = pre.next.next;
+            p.next = q.next;
+            q.next = pre.next;
+            pre.next = q;
+            pre = p;
+        }
+        return shadowNode.next;
     }
+
 }

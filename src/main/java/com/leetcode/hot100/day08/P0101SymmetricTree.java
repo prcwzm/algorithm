@@ -2,10 +2,36 @@ package com.leetcode.hot100.day08;
 
 import com.leetcode.hot100.common.TreeNode;
 
+import java.util.ArrayDeque;
+import java.util.Queue;
+
 /** LeetCode 101. 对称二叉树。 */
 public class P0101SymmetricTree {
     public boolean isSymmetric(TreeNode root) {
-        // TODO: 实现后补充思路、时间复杂度和空间复杂度。
-        throw new UnsupportedOperationException("请实现对称二叉树判断");
+        return check(root, root);
     }
+
+    private boolean check(TreeNode l, TreeNode r) {
+        Queue<TreeNode> queue = new ArrayDeque<>();
+        queue.add(l);
+        queue.add(r);
+        while(!queue.isEmpty()) {
+            TreeNode u = queue.poll();
+            TreeNode v = queue.poll();
+            if (u == null && v == null) {
+                continue;
+            }
+            if (u == null || v == null || v.val != u.val) {
+                return false;
+            }
+
+            queue.offer(u.right);
+            queue.offer(v.left);
+
+            queue.offer(u.left);
+            queue.offer(u.right);
+        }
+        return true;
+    }
+
 }
